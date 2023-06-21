@@ -1,6 +1,7 @@
 package Control.ControlWeb;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Form;
@@ -11,12 +12,13 @@ import com.google.gson.JsonObject;
 
 import Control.DB.CartDAO;
 import Control.DB.CartUserDAO;
+import Control.DB.FeeDao;
 import Control.DB.UserDAO;
 import Model.Account_Google;
 import Model.Account_SignUp;
 import Model.Cart;
 import Model.Constants;
-
+import Model.Fee;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -48,6 +50,8 @@ public class LoginByGoogle extends HttpServlet {
 		int cart_id = new CartDAO().getCartId(acc.getEmail());
 		cart.setCartId(cart_id);
 		cart.setList_product(new CartUserDAO().getListProductInCart(cart_id));
+		List<Fee> listFee = new FeeDao().getListFee();
+        session.setAttribute("list_fee", listFee);
 		session.setAttribute("cart_user", cart);
 		
 		

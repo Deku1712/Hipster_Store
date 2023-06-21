@@ -10,6 +10,7 @@ import java.util.List;
 
 import Model.Account_Google;
 import Model.Account_SignUp;
+import Model.User;
 
 public class UserDAO {
 
@@ -147,19 +148,40 @@ public class UserDAO {
         return null;
     }
 
-    public void editProfile(String email, String name, String address, String username) throws SQLException, ClassNotFoundException{
-        try {
-            String query = "UPDATE [dbo].[User_Table] SET [email] = ?,[fullname] = ?,[address] = ? WHERE [username]=?";
-            conn = DBconnect.makeConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, email);
-            ps.setString(2, name);
-            ps.setString(3, address);
-            ps.setString(4, username);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public void editProfile( String name, String address, String username , String filename , String phone) throws SQLException, ClassNotFoundException{
+        conn = DBconnect.makeConnection();
+        String query = "Update User_Table Set fullname = ? , address = ? , phone = ? , img = ? where username = ?";
+        ps = conn.prepareStatement(query);
+        ps.setString(1, name);
+        ps.setString(2, address);
+        ps.setString(3, phone);
+        ps.setString(4, "./imgs/" + filename);
+        ps.setString(5, username);
+        ps.executeUpdate();
+    }
+
+    public User getProfile(String username) throws SQLException, ClassNotFoundException{
+        String query = "Select username, role, email, fullname, address, phone , img From User_Table ";
+        conn = DBconnect.makeConnection();
+        ps = conn.prepareStatement(query);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            return new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+
         }
+        return null;
+    }
+
+    public String getPass(String username) throws ClassNotFoundException, SQLException{
+        conn = DBconnect.makeConnection();
+        String query = "Select password from User_Table where username = ? " ;
+        ps =conn.prepareStatement(query);
+        ps.setString(1, username);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            return rs.getString(1);
+        }
+        return null;
     }
 
 }

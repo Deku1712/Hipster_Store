@@ -21,11 +21,7 @@
 
               <li>
                 <a href="product">Shop</a>
-                <ul class="sub-menu">
-                  <li><a href="#">Nike</a></li>
-                  <li><a href="#">Adidas</a></li>
-                  <li><a href="#">Converse</a></li>
-                </ul>
+                
               </li>
 
               <li>
@@ -55,7 +51,7 @@
                   <!-- so lượng item trong cart -->
                   <i class="zmdi zmdi-shopping-cart"></i>
                 </div>
-                <a href="profile.jsp" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22">
+                <a href="profile" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22">
                   <i class="fa-solid fa-user-large"></i>
                   <span class="fs-15">${sessionScope.user}</span>
                 </a>
@@ -68,7 +64,7 @@
                 </a>
 
                 <ul class="dropdown-menu">
-                  <li><a href="Login_SignUp.jsp">Login</a></li>
+                  <li><a href="checkCookie">Login</a></li>
                   <li><a href="Login_SignUp.jsp">Sign Up</a></li>
                 </ul>
               </c:otherwise>
@@ -112,7 +108,7 @@
                 </a>
 
                 <ul class="dropdown-menu">
-                  <li><a href="Login_SignUp.jsp">Login</a></li>
+                  <li><a href="checkCookie">Login</a></li>
                   <li><a href="Login_SignUp.jsp">Sign Up</a></li>
                 </ul>
               </c:otherwise>
@@ -136,11 +132,7 @@
 
         <li>
           <a href="product">Shop</a>
-          <ul class="sub-menu-m">
-            <li><a href="#">Nike </a></li>
-            <li><a href="#">Adidas</a></li>
-            <li><a href="#">Converse</a></li>
-          </ul>
+          
           <span class="arrow-main-menu-m">
             <i class="fa fa-angle-right" aria-hidden="true"></i>
           </span>
@@ -167,7 +159,7 @@
           <img src="images/icons/icon-close2.png" alt="CLOSE" />
         </button>
 
-        <form class="wrap-search-header flex-w p-l-15">
+        <form action="Search" method="post" class="wrap-search-header flex-w p-l-15">
           <button class="flex-c-m trans-04">
             <i class="zmdi zmdi-search"></i>
           </button>

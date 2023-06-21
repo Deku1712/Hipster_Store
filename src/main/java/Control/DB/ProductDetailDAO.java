@@ -24,5 +24,18 @@ public class ProductDetailDAO {
         }
     }
 
+    public int getQuantitySizeProduct(Product_Cart p) throws ClassNotFoundException, SQLException{
+        String query = "Select quantityOfSize from ProductDetail_Table where product_id = ? and size =? ";
+        conn = DBconnect.makeConnection();
+        ps = conn.prepareStatement(query);
+        ps.setInt(1, p.getProduct().getProduct_id());
+        ps.setInt(2, p.getSize());
+        rs = ps.executeQuery();
+        while(rs.next()){
+            return rs.getInt(1);
+        }
+        return -1;
+    }
+
 
 }

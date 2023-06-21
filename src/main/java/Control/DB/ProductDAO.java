@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Product;
+import Model.Product_Cart;
 
 public class ProductDAO {
 
@@ -65,6 +66,64 @@ public class ProductDAO {
         System.out.println(max_price);
         System.out.println(min_price);
         return list;
+    }
+    public Product_Cart checkQuantityProduct(List<Product_Cart> list) throws ClassNotFoundException, SQLException{
+        for (Product_Cart p : list) {
+            int quantity = new ProductDetailDAO().getQuantitySizeProduct(p);
+            if (p.getQuantity() > quantity){
+                return p;
+            }
+        }
+
+        return null;
+        
+        
+    }
+
+
+    public List<Product> getListPSearch(String search) throws SQLException, ClassNotFoundException {
+        conn = DBconnect.makeConnection();
+        List<Product> list = new ArrayList<>();
+        String query = "Select * from Product_Table";
+        ps = conn.prepareStatement(query);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            if(rs.getString(2).toUpperCase().contains(search.toUpperCase())){
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9), rs.getString(10));
+                list.add(p);
+            }
+        }
+        return list;
+    }
+
+
+    public List<Product> getListProduct(String orderby) throws ClassNotFoundException, SQLException {
+        conn = DBconnect.makeConnection();
+        String query = "Select * from Product_Table order by profit_price " + orderby;
+        ps = conn.prepareStatement(query);
+        rs = ps.executeQuery();
+        List<Product> list_product = new ArrayList<>();
+        while(rs.next()){
+            Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9),rs.getString(10));
+            list_product.add(p);
+        }
+        return list_product;
+    }
+
+
+    public List<Product> getListProduct(float min, float max) throws SQLException, ClassNotFoundException {
+        conn = DBconnect.makeConnection();
+        String query = "Select * from Product_Table where profit_price >= ? and profit_price <= ?";
+        ps = conn.prepareStatement(query);
+        ps.setFloat(1, min);
+        ps.setFloat(2, max);
+        rs = ps.executeQuery();
+        List<Product> list_product = new ArrayList<>();
+        while(rs.next()){
+            Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9),rs.getString(10));
+            list_product.add(p);
+        }
+        return list_product;
     }
 }
    

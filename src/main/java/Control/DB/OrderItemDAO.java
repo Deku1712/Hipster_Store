@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import Model.Product;
 import Model.Product_Cart;
 
 public class OrderItemDAO {
@@ -24,6 +26,20 @@ public class OrderItemDAO {
             ps.executeUpdate();
         }
 
+    }
+    public List<Product_Cart> getListItemForORderId(String order_id) throws SQLException, ClassNotFoundException {
+        List<Product_Cart> list = new ArrayList<>();
+        conn = DBconnect.makeConnection();
+        String query = "Select * From OrderItems_Table where order_id = ?";
+        ps = conn.prepareStatement(query);
+        ps.setString(1, order_id);
+        rs = ps.executeQuery();
+        while(rs.next()){
+           Product p = new ProductDAO().getProduct(rs.getInt(2));
+           Product_Cart item = new Product_Cart(p, rs.getInt(3), rs.getInt(4));
+           list.add(item);
+        }
+        return list;
     }
 
     

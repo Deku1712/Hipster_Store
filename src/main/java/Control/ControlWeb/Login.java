@@ -44,8 +44,8 @@ public class Login extends HttpServlet{
                 cart.setList_product(new CartUserDAO().getListProductInCart(cart_id));
 
                 List<Fee> listFee = new FeeDao().getListFee();
-                session.setAttribute("cart_user", cart);
                 session.setAttribute("list_fee", listFee);
+                session.setAttribute("cart_user", cart);
                 check = true;
                 break;
             }

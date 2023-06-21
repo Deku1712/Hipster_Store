@@ -36,6 +36,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" href="css/styleHome.css">
     <!--===============================================================================================-->
   </head>
   <body class="animsition">
@@ -82,7 +83,7 @@
                       <c:forEach items="${sessionScope.cart_user.list_product}" var="productCart">
                         <tr class="table_row">
                           <td class="column-1">
-                            <div class="productId d-none">${productCart.product.product_id}</div>
+                            <div class="productId d-none">${productCart.product.product_id}/${productCart.size}</div>
                             <div class="how-itemcart1">
                               <img src="${productCart.product.img}" alt="IMG" />
                             </div>
@@ -198,6 +199,19 @@
                 </div>
               </div>
 
+              <div class="flex-w flex-t bor12 p-b-13 m-t-9">
+                <div class="size-208">
+                  <span class="paymentMethod"> Payment Methods </span>
+                </div>
+
+                <div class="size-209">
+                  <span class="mtext-110 cl2 ">
+                    <input type="radio" name="pay" class="payment" value="COD"> COD
+                    <input type="radio" name="pay"  class="payment" value="VnPay">VnPay
+                  </span>
+                </div>
+              </div>
+
               <div class="flex-w flex-t p-t-27 p-b-33">
                 <div class="size-208">
                   <span class="mtext-101 cl2"> Total: </span>
@@ -297,7 +311,6 @@
         <i class="zmdi zmdi-chevron-up"></i>
       </span>
     </div>
-    <script src="script/shopping_cart.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -307,6 +320,7 @@
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/select2/select2.min.js"></script>
+    <script src="script/shopping_cart.js"></script>
     <script>
       $(".js-select2").each(function () {
         $(this).select2({

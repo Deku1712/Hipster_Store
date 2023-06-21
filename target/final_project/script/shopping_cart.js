@@ -1,5 +1,11 @@
 var checkButton = true;
 
+
+var payment = document.getElementsByClassName('payment');
+
+
+
+
 const table_row = document.querySelectorAll('.table_row');
 function caculator(){
     for ( var i = 0 ; i < table_row.length; i++){
@@ -46,7 +52,15 @@ proceedToCheckout.addEventListener('click', (event) => {
       var city = cartTotal.querySelector('.city');
       var address = cartTotal.querySelector('.address');
       var totalOfBill = cartTotal.querySelector('.totalOfBill');
-      proceedToCheckout.href = proceedToCheckout.href + "&address="+address.value+"&city="+city.text +"&total="+totalOfBill.textContent;
+      var pay = "";
+      for ( var i = 0 ; i< payment.length; i++){
+        if (payment[i].checked){
+          pay = payment[i].value;
+          console.log(pay);
+          break;
+        }
+      }
+      proceedToCheckout.href = proceedToCheckout.href + "&address="+address.value+"&city="+city.text +"&total="+totalOfBill.textContent+"&pay=" + pay;
       window.location.href = proceedToCheckout.href;
     }
   }

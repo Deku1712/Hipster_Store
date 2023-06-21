@@ -195,4 +195,16 @@ public class Send {
             e.printStackTrace();
         }
     }
+
+    public void sendEmailChange(String email) {
+        String htmlContent = "<html><body><h1>Verify Gmail: </h1><a href='http://localhost:8080/final_project/ChangeEmail.jsp>Click Me</a></body></html>";
+        String title = "Verify gmail";
+        mail(email, htmlContent, title);
+    }
+    public void confirmNewEmail(String email){
+            String htmlContent = "<html><body><h1>Confirm Gmail: </h1><a href='http://localhost:8080/final_project/updateGmail?gmail="+ email+">Click Me</a></body></html>";
+            String title= "Confirm gmail";
+            mail(email, htmlContent, title);
+
+    }
 }

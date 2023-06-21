@@ -41,6 +41,8 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <link rel="stylesheet" href="css/styleHome.css">
     <!--===============================================================================================-->
   </head>
   <body class="animsition">
@@ -88,18 +90,20 @@
 
           <!-- Search product -->
           <div class="dis-none panel-search w-full p-t-10 p-b-15">
-            <div class="bor8 dis-flex p-l-15">
-              <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-                <i class="zmdi zmdi-search"></i>
-              </button>
-
-              <input
-                class="mtext-107 cl2 size-114 plh2 p-r-15"
-                type="text"
-                name="search-product"
-                placeholder="Search"
-              />
-            </div>
+            <form action="Search" method="post">
+              <div class="bor8 dis-flex p-l-15">
+                <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                  <i class="zmdi zmdi-search"></i>
+                </button>
+  
+                <input
+                  class="mtext-107 cl2 size-114 plh2 p-r-15"
+                  type="text"
+                  name="search"
+                  placeholder="Search"
+                />
+              </div>
+            </form>
           </div>
 
           <!-- Filter -->
@@ -110,27 +114,16 @@
 
                 <ul>
                   <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> Default </a>
+                    <a href="product" class="filter-link stext-106 trans-04"> Default </a>
+                  </li>
+                  
+
+                  <li class="p-b-6">
+                    <a href="OrderBy?orderby=asc" class="filter-link stext-106 trans-04"> Price: Low to High </a>
                   </li>
 
                   <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> Popularity </a>
-                  </li>
-
-                  <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> Average rating </a>
-                  </li>
-
-                  <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active"> Newness </a>
-                  </li>
-
-                  <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> Price: Low to High </a>
-                  </li>
-
-                  <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> Price: High to Low </a>
+                    <a href="OrderBy?orderby=desc" class="filter-link stext-106 trans-04"> Price: High to Low </a>
                   </li>
                 </ul>
               </div>
@@ -140,56 +133,31 @@
 
                 <ul>
                   <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active"> All </a>
+                    <a href="product" class="filter-link stext-106 trans-04 filter-link-active"> All </a>
                   </li>
 
                   <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> $0.00 - $50.00 </a>
+                    <a href="range?min=0&max=50" class="filter-link stext-106 trans-04"> $0.00 - $50.00 </a>
                   </li>
 
                   <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> $50.00 - $100.00 </a>
+                    <a href="range?min=50&max=100" class="filter-link stext-106 trans-04"> $50.00 - $100.00 </a>
                   </li>
 
                   <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> $100.00 - $150.00 </a>
+                    <a href="range?min=100&max=150" class="filter-link stext-106 trans-04"> $100.00 - $150.00 </a>
                   </li>
 
                   <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> $150.00 - $200.00 </a>
+                    <a href="range?min=150&max=200" class="filter-link stext-106 trans-04"> $150.00 - $200.00 </a>
                   </li>
 
                   <li class="p-b-6">
-                    <a href="#" class="filter-link stext-106 trans-04"> $200.00+ </a>
+                    <a href="range?min=200&max=1000" class="filter-link stext-106 trans-04"> $200.00+ </a>
                   </li>
                 </ul>
               </div>
 
-              <div class="filter-col4 p-b-27">
-                <div class="mtext-102 cl2 p-b-15">Tags</div>
-
-                <div class="flex-w p-t-4 m-r--5">
-                  <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Fashion
-                  </a>
-
-                  <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Lifestyle
-                  </a>
-
-                  <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Denim
-                  </a>
-
-                  <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Streetstyle
-                  </a>
-
-                  <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Crafts
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
