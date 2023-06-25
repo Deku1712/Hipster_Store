@@ -1,6 +1,10 @@
 package Control;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Random;
+import java.util.logging.SimpleFormatter;
 
 import jakarta.servlet.http.Part;
 
@@ -57,5 +61,12 @@ public class Feature {
             break;
         }
         return page;
+    }
+
+    public Date convertDate(String dateString) throws ParseException{
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date date = sdf.parse(dateString);
+        Date date2 = new Date(date.getTime());
+        return date2;
     }
 }

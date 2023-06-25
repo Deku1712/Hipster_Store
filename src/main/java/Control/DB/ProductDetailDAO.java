@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import Model.Product;
 import Model.Product_Cart;
 
 public class ProductDetailDAO {
@@ -35,6 +38,32 @@ public class ProductDetailDAO {
             return rs.getInt(1);
         }
         return -1;
+    }
+
+    public Map<Integer, Integer> getsizeAndQuantity(Product p) throws SQLException, ClassNotFoundException{
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        String query = "Select size , quantityOfSize from ProductDetail_Table where product_id =?";
+        conn = DBconnect.makeConnection();
+        ps = conn.prepareStatement(query);
+        ps.setInt(1, p.getProduct_id());
+        rs = ps.executeQuery();
+        while(rs.next()){
+            map.put(rs.getInt(1), rs.getInt(2));
+        }
+        return map;
+
+    }
+
+    public void editQuantitysize(Product p) throws SQLException, ClassNotFoundException{
+        conn = DBconnect.makeConnection();
+        String query = "update ProductDetail_Table set quantityOfSize = ? where product_id = ? and size = ?";
+        ps = conn.prepareStatement(query);
+        for(Map.Entry<Integer, Integer> entry: p.getSizeAndQuantitysize().entrySet()){
+            ps.setInt(1, entry.getValue());
+            ps.setInt(2, p.getProduct_id());
+            ps.setInt(3, entry.getKey());
+            ps.executeUpdate();
+        }
     }
 
 

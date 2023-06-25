@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.Date;
+import java.util.Map;
 
 public class Product {
     private int product_id;
@@ -13,8 +14,33 @@ public class Product {
     private Date created_at;
     private Date update_at;
     private String color;
+    private Map<Integer, Integer> sizeAndQuantitysize;
 
     
+
+    public Product(int product_id, String product_name, String brand, String prouduct_description, float profit_price,
+            String img, int quantity, Date created_at, Date update_at, String color,
+            Map<Integer, Integer> sizeAndQuantitysize) {
+        this.product_id = product_id;
+        this.product_name = product_name;
+        this.brand = brand;
+        this.prouduct_description = prouduct_description;
+        this.profit_price = profit_price;
+        this.img = img;
+        this.quantity = quantity;
+        this.created_at = created_at;
+        this.update_at = update_at;
+        this.color = color;
+        this.sizeAndQuantitysize = sizeAndQuantitysize;
+    }
+
+    public Map<Integer, Integer> getSizeAndQuantitysize() {
+        return sizeAndQuantitysize;
+    }
+
+    public void setSizeAndQuantitysize(Map<Integer, Integer> sizeAndQuantitysize) {
+        this.sizeAndQuantitysize = sizeAndQuantitysize;
+    }
 
     public Product(int product_id, String product_name,String brand ,String prouduct_description, float profit_price, String img,
             int quantity, Date created_at, Date update_at, String color) {

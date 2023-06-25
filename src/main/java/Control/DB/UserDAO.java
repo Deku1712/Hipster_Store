@@ -22,7 +22,7 @@ public class UserDAO {
     public void insertUserTable(Account_SignUp acc) throws  ClassNotFoundException, SQLException{
         
 
-        String query = "Insert into User_Table (username, password, role , email , created_at, update_at) Values (?, ? ,?, ?, ? ,?)";
+        String query = "Insert into User_Table (username, password, role , email , created_at, update_at , img) Values (?, ? ,?, ?, ? ,? ,? )";
         conn = DBconnect.makeConnection();
         Date currentDate = new Date();
 
@@ -35,6 +35,7 @@ public class UserDAO {
         ps.setString(4, acc.getEmail());
         ps.setDate(5, sqlDate);
         ps.setDate(6, sqlDate);
+        ps.setString(7, "./imgs/ava_user.jpg");
         try {
             ps.executeUpdate();
             
@@ -182,6 +183,19 @@ public class UserDAO {
             return rs.getString(1);
         }
         return null;
+    }
+
+    public List<User> getListUser() throws SQLException, ClassNotFoundException{
+        String query = "Select username, role, email, fullname, address, phone , img From User_Table ";
+        List<User> list = new ArrayList<>();
+        conn = DBconnect.makeConnection();
+        ps = conn.prepareStatement(query);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            list.add(new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+        }
+        System.out.println(list.size());
+        return list;
     }
 
 }

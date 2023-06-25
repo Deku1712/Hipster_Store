@@ -1,6 +1,6 @@
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.nio.charset.StandardCharsets"%>
-<%@page import="Control.ControlWeb.Config"%>
+<%@page import="Control.Config"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

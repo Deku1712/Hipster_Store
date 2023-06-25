@@ -20,7 +20,7 @@ public class ProductDAO {
 
     public List<Product> getListProduct() throws SQLException, ClassNotFoundException{
         conn = DBconnect.makeConnection();
-        String query = "Select * from Product_Table";
+        String query = "Select * from Product_Table where quantity > 0";
         ps = conn.prepareStatement(query);
         rs = ps.executeQuery();
         List<Product> list_product = new ArrayList<>();
@@ -29,7 +29,6 @@ public class ProductDAO {
             list_product.add(p);
         }
         return list_product;
-        
     }
 
 
@@ -125,6 +124,37 @@ public class ProductDAO {
         }
         return list_product;
     }
+
+
+
+    public List<Product> getListProducttoManage() throws SQLException, ClassNotFoundException{
+        conn = DBconnect.makeConnection();
+        String query = "Select * from Product_Table ";
+        ps = conn.prepareStatement(query);
+        rs = ps.executeQuery();
+        List<Product> list_product = new ArrayList<>();
+        while(rs.next()){
+            Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9),rs.getString(10));
+            p.setSizeAndQuantitysize(new ProductDetailDAO().getsizeAndQuantity(p));
+            list_product.add(p);
+        }
+        return list_product;
+    }
+
+    public void editProduct(Product p) throws SQLException, ClassNotFoundException{
+        conn = DBconnect.makeConnection();
+        String query = "Update Product_Table set product_name = ? , brand = ? , product_description = ? , img = ? , update_at = getDate(), color =? where product_id = ? ";
+        ps = conn.prepareStatement(query);
+        ps.setString(1, p.getProduct_name());
+        ps.setString(2, p.getBrand());
+        ps.setString(3, p.getProuduct_description());
+        ps.setString(4, "./imgs/" + p.getImg());
+        ps.setString(5, p.getColor());
+        ps.setInt(6, p.getProduct_id());
+        ps.executeUpdate();
+    }
+
+
 }
    
 
