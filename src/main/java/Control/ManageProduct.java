@@ -2,9 +2,11 @@ package Control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import Control.DB.ProductDAO;
+import Model.Price;
 import Model.Product;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,6 +20,8 @@ public class ManageProduct extends HttpServlet {
         String page = "ManageProduct.jsp";
         try {
             List<Product> list_p = new ProductDAO().getListProducttoManage();
+            
+            
             req.setAttribute("manageProduct", list_p);
         } catch (ClassNotFoundException | SQLException e) {
             // TODO Auto-generated catch block

@@ -10,6 +10,8 @@
 
     <!-- Tailwind is included -->
     <link rel="stylesheet" href="css/main1.css?v=1628755089081">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+
 
 
 
@@ -67,100 +69,57 @@
         </div>
         <div class="navbar-menu" id="navbar-menu">
           <div class="navbar-end">
-            <div class="navbar-item dropdown has-divider">
-              <a class="navbar-link">
-                <span class="icon"><i class="mdi mdi-menu"></i></span>
-                <span>Sample Menu</span>
-                <span class="icon">
-                  <i class="mdi mdi-chevron-down"></i>
-                </span>
-              </a>
-              <div class="navbar-dropdown">
-                <a href="profile.html" class="navbar-item">
-                  <span class="icon"><i class="mdi mdi-account"></i></span>
-                  <span>My Profile</span>
-                </a>
-                <a class="navbar-item">
-                  <span class="icon"><i class="mdi mdi-settings"></i></span>
-                  <span>Settings</span>
-                </a>
-                <a class="navbar-item">
-                  <span class="icon"><i class="mdi mdi-email"></i></span>
-                  <span>Messages</span>
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  <span class="icon"><i class="mdi mdi-logout"></i></span>
-                  <span>Log Out</span>
-                </a>
-              </div>
-            </div>
+            
             <div class="navbar-item dropdown has-divider has-user-avatar">
               <a class="navbar-link">
                 <div class="user-avatar">
-                  <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe" class="rounded-full">
+                  <img src="${admin.img}" alt="" class="rounded-full">
                 </div>
-                <div class="is-user-name"><span>John Doe</span></div>
+                <div class="is-user-name"><span>${admin.username}</span></div>
                 <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
               </a>
               <div class="navbar-dropdown">
-                <a href="profile.html" class="navbar-item">
+                <a href="profile" class="navbar-item">
                   <span class="icon"><i class="mdi mdi-account"></i></span>
                   <span>My Profile</span>
                 </a>
-                <a class="navbar-item">
-                  <span class="icon"><i class="mdi mdi-settings"></i></span>
-                  <span>Settings</span>
-                </a>
-                <a class="navbar-item">
-                  <span class="icon"><i class="mdi mdi-email"></i></span>
-                  <span>Messages</span>
-                </a>
+                
                 <hr class="navbar-divider">
-                <a class="navbar-item">
+                <a class="navbar-item" href="logout">
                   <span class="icon"><i class="mdi mdi-logout"></i></span>
                   <span>Log Out</span>
                 </a>
               </div>
             </div>
-            <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
-              <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
-              <span>About</span>
-            </a>
-            <a href="https://github.com/justboil/admin-one-tailwind" class="navbar-item has-divider desktop-icon-only">
-              <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-              <span>GitHub</span>
-            </a>
-            <a title="Log out" class="navbar-item desktop-icon-only">
-              <span class="icon"><i class="mdi mdi-logout"></i></span>
-              <span>Log out</span>
-            </a>
+            
+            
+            
           </div>
         </div>
       </nav>
-
+      
       <aside class="aside is-placed-left is-expanded">
         <div class="aside-tools">
           <div>
-            Admin <b class="font-black">One</b>
+            Hipster <b class="font-black">Store</b>
           </div>
         </div>
         <div class="menu is-menu-main">
           <p class="menu-label">General</p>
           <ul class="menu-list">
-            <li class="--set-active-index-html">
+            <li class="active">
               <a href="index.html">
                 <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
-                <span class="menu-item-label">Dashboard</span>
+                <span class="menu-item-label">Store</span>
               </a>
             </li>
           </ul>
-          <p class="menu-label">Examples</p>
+          <p class="menu-label">Manage</p>
           <ul class="menu-list">
-            <li class="active">
+            <li class="--set-active-tables-html">
               <a href="tables.html">
                 <span class="icon"><i class="mdi mdi-table"></i></span>
-                <span class="menu-item-label">Tables</span>
+                <span class="menu-item-label">Manage Produt</span>
               </a>
             </li>
             <li class="--set-active-forms-html">
@@ -170,21 +129,21 @@
               </a>
             </li>
             <li class="--set-active-profile-html">
-              <a href="profile.html">
+              <a href="profile">
                 <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-                <span class="menu-item-label">Profile</span>
+                <span class="menu-item-label">Manage Order</span>
               </a>
             </li>
             <li>
-              <a href="login.html">
+              <a href="#">
                 <span class="icon"><i class="mdi mdi-lock"></i></span>
-                <span class="menu-item-label">Login</span>
+                <span class="menu-item-label">Manage Content</span>
               </a>
             </li>
             <li>
               <a class="dropdown">
                 <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                <span class="menu-item-label">Submenus</span>
+                <span class="menu-item-label">Shipper</span>
                 <span class="icon"><i class="mdi mdi-plus"></i></span>
               </a>
               <ul>
@@ -201,42 +160,17 @@
               </ul>
             </li>
           </ul>
-          <p class="menu-label">About</p>
-          <ul class="menu-list">
-            <li>
-              <a href="https://justboil.me" onclick="alert('Coming soon'); return false" target="_blank"
-                class="has-icon">
-                <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
-                <span class="menu-item-label">Premium Demo</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
-                <span class="icon"><i class="mdi mdi-help-circle"></i></span>
-                <span class="menu-item-label">About</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/justboil/admin-one-tailwind" class="has-icon">
-                <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-                <span class="menu-item-label">GitHub</span>
-              </a>
-            </li>
-          </ul>
+          
         </div>
       </aside>
-
+      
       <section class="is-title-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
           <ul>
             <li>Admin</li>
-            <li>Tables</li>
+            <li>Manage Product</li>
           </ul>
-          <a href="https://justboil.me/" onclick="alert('Coming soon'); return false" target="_blank"
-            class="button blue">
-            <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
-            <span>Premium Demo</span>
-          </a>
+          
         </div>
       </section>
 
@@ -312,7 +246,7 @@
                         <button class="button small green --jb-modal" data-target="sample-modal-${product.product_id}" type="button">
                           <span class="icon"><i class="mdi mdi-eye"></i></span>
                         </button>
-                        <button class="button small red --jb-modal" data-target="sample-modal" type="button">
+                        <button class="button small red --jb-modal" data-target="sample-modal-delete${product.product_id}" type="button">
                           <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                         </button>
                       </div>
@@ -366,23 +300,78 @@
         </div>
       </section>
 
-
-      <div id="sample-modal" class="modal">
-        <div class="modal-background --jb-modal-close"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Sample modal</p>
-          </header>
-          <section class="modal-card-body">
-            <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-            <p>This is sample modal</p>
-          </section>
-          <footer class="modal-card-foot">
-            <button class="button --jb-modal-close">Cancel</button>
-            <button class="button red --jb-modal-close">Confirm</button>
-          </footer>
+      <c:forEach items="${manageProduct}" var="product">
+        <div id="sample-modal-delete${product.product_id}" class="modal">
+          <div class="modal-background --jb-modal-close"></div>
+          <form action="deleteProductStore" method="post">
+            <div class="modal-card" style="width: 100%;">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Do you want to delete Product: ${product.product_name}</p>
+              </header>
+              <section class="modal-card-body">
+                <table>
+                  <tr>
+                    <th>Product ID</th>
+                    <th class="image-cell"></th>
+                    <th>Img</th>
+                    <th>Brand</th>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Profit_price</th>
+                    <th>Quantity</th>
+                    <th>Created</th>
+                    <th>Update_At</th>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="product_id" id="" value="${product.product_id}"
+                        placeholder="${product.product_id}" readonly ></td>
+                    <td class="image-cell">
+                      <div class="image" style="width: 80px; height: 80px;">
+                        <img src="${product.img}" class="rounded-full">
+                      </div>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                      <input type="text" name="brandupdate" id="" placeholder="${product.brand}"
+                        value="${product.brand}" readonly>
+                    </td>
+                    <td>
+                      <input type="text" name="nameup" id="" placeholder="${product.product_name}"
+                        value="${product.product_name}" readonly>
+                    </td>
+                    <td>
+                      <input type="text" name="colorup" id="" placeholder="${product.color}" value="${product.color}" readonly>
+                    </td>
+                    <td>
+                      ${product.profit_price} $
+                    </td>
+                    <td>
+                      ${product.quantity}
+                    </td>
+                    <td>
+                      ${product.created_at}
+                    </td>
+                    <td>
+                      ${product.update_at}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="10">
+                      <textarea name="description" id="" cols="30" rows="10" aria-valuetext="${product.prouduct_description}" placeholder="${product.prouduct_description}" style="width: 100%;" readonly></textarea>
+                    </td>
+                  </tr>
+                </table>
+              </section>
+              <footer class="modal-card-foot">
+                <button class="button --jb-modal-close">Cancel</button>
+                <button class="button red" type="submit">Confirm</button>
+              </footer>
+            </div>
+          </form>
         </div>
-      </div>
+      </c:forEach>
+
 
       <c:forEach items="${manageProduct}" var="product">
         <div id="sample-modal-${product.product_id}" class="modal">
@@ -417,7 +406,8 @@
                     </td>
                     <td>
                       <div class="img_input">
-                        <input type="file" name="linkimg" value="${product.img}">
+                        <input type="file" name="linkimg">
+                        <input type="hidden" name="oldimg" value="${product.img}" readonly>
                       </div>
                     </td>
                     <td>
@@ -446,7 +436,7 @@
                   </tr>
                   <tr>
                     <td colspan="10">
-                      <textarea name="description" id="" cols="30" rows="10" aria-valuetext="${product.prouduct_description}" placeholder="${product.prouduct_description}" style="width: 100%;"></textarea>
+                      <input type="text" name="description" id="" value="${product.prouduct_description}" placeholder="${product.prouduct_description}" style="width: 100%; height: 30px;" >
                     </td>
                   </tr>
                 </table>
@@ -482,12 +472,27 @@
                       <th>End of day</th>
                     </tr>
 
-                    <tr>
-                      <td>${product.profit_price} $</td>
-                      <td><input type="number" name="priceup" min="0" required></td>
-                      <td><input type="date" name="start" id=""></td>
-                      <td><input type="date" name="end" id=""></td>
+                    <tr class="timeControl">
+                      <td>${product.profit_price} $(+50)</td>
+                      <td><input type="number" name="priceup" min="0" value="${product.profit_price - 50}" ></td>
+                      <td><input type="date" name="start" class="startinput"  value="${product.price.startOfDate}" min="${product.price.endOfDate}" ></td>
+                      <td><input type="date" name="end" class="endinput"  value="${product.price.endOfDate}" min="" ></td>
                     </tr>
+
+                    <tr>
+                      <td>Product ID</td>
+                      <td colspan="3">
+                        <h3>History Change</h3>
+                      </td>
+                    </tr>
+                    <c:forEach items="${product.historyChange}" var="history">
+                      <tr>
+                        <td>${history.product_id}</td>
+                        <td>${history.price_input}</td>
+                        <td>${history.startOfDate}</td>
+                        <td>${history.endOfDate}</td>
+                      </tr>
+                    </c:forEach>
                   </table>
                 </div>
 
@@ -505,9 +510,19 @@
 
     <!-- Scripts below are for demo only -->
     <script src="js/main1.js"></script>
-
-
-
+    <script>
+      var startDate = document.querySelectorAll(".startinput");
+      startDate.forEach(d => {
+        d.addEventListener("change", (event) => {
+          var changeE = event.target;
+          var time = changeE.closest(".timeControl");
+          var endDate = time.querySelector(".endinput");
+          endDate.min = changeE.value;
+          endDate.value = changeE.value;
+        });
+      });
+    </script>
+    
     <script>
       !function (f, b, e, v, n, t, s) {
         if (f.fbq) return; n = f.fbq = function () {

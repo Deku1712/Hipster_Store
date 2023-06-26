@@ -1,6 +1,7 @@
 package Control.DB;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +28,7 @@ public class OrderItemDAO {
         }
 
     }
-    public List<Product_Cart> getListItemForORderId(String order_id) throws SQLException, ClassNotFoundException {
+    public List<Product_Cart> getListItemForORderId(String order_id, Date create_at) throws SQLException, ClassNotFoundException {
         List<Product_Cart> list = new ArrayList<>();
         conn = DBconnect.makeConnection();
         String query = "Select * From OrderItems_Table where order_id = ?";
@@ -35,7 +36,7 @@ public class OrderItemDAO {
         ps.setString(1, order_id);
         rs = ps.executeQuery();
         while(rs.next()){
-           Product p = new ProductDAO().getProduct(rs.getInt(2));
+           Product p = new ProductDAO().getProduct(rs.getInt(2) , create_at);
            Product_Cart item = new Product_Cart(p, rs.getInt(3), rs.getInt(4));
            list.add(item);
         }

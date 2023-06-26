@@ -66,5 +66,13 @@ public class ProductDetailDAO {
         }
     }
 
+    public void deleteProduct(int product_id) throws SQLException, ClassNotFoundException {
+        conn = DBconnect.makeConnection();
+        String query = "Update ProductDetail_Table set quantityOfSize = 0 where product_id = ?";
+        ps = conn.prepareStatement(query);
+        ps.setInt(1, product_id);
+        ps.executeUpdate();
+    }
+
 
 }

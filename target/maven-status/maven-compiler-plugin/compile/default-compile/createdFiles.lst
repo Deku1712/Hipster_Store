@@ -1,5 +1,6 @@
 Control\DB\DBconnect.class
 Control\DB\NotificationDAO.class
+Control\Action\DeleteProductStore.class
 Control\DB\OrderItemDAO.class
 Control\ProductServlet.class
 Control\OrderControl.class
@@ -42,6 +43,7 @@ Control\DB\FeeDao.class
 Control\ProcessReset.class
 Control\DB\CartUserDAO.class
 Control\DB\UserDAO.class
+Model\Price.class
 Control\ManageProduct.class
 Model\Product.class
 Control\ListProduct.class

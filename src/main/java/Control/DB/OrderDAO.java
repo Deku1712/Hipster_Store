@@ -53,7 +53,7 @@ public class OrderDAO {
             Order o = new Order();
             OrderDetail orderDetail = new OrderDetail(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getFloat(5), rs.getDate(6), rs.getDate(7), rs.getString(8));
             o.setOrderDetail(orderDetail);
-            List<Product_Cart> list_items = new OrderItemDAO().getListItemForORderId(o.getOrderDetail().getOrder_id());
+            List<Product_Cart> list_items = new OrderItemDAO().getListItemForORderId(o.getOrderDetail().getOrder_id() , o.getOrderDetail().getCreated_at());
             o.setList_item(list_items);
             list.add(o);
         }

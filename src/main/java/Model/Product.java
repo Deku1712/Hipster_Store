@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Map;
 
 public class Product {
@@ -15,8 +16,26 @@ public class Product {
     private Date update_at;
     private String color;
     private Map<Integer, Integer> sizeAndQuantitysize;
+    private Price price;
+    private List<Price> historyChange;
 
     
+
+    public List<Price> getHistoryChange() {
+        return historyChange;
+    }
+
+    public void setHistoryChange(List<Price> historyChange) {
+        this.historyChange = historyChange;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(Price price) {
+        this.price = price;
+    }
 
     public Product(int product_id, String product_name, String brand, String prouduct_description, float profit_price,
             String img, int quantity, Date created_at, Date update_at, String color,

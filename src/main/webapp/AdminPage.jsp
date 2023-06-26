@@ -114,7 +114,7 @@
     <p class="menu-label">Manage</p>
     <ul class="menu-list">
       <li class="--set-active-tables-html">
-        <a href="tables.html">
+        <a href="manageProduct">
           <span class="icon"><i class="mdi mdi-table"></i></span>
           <span class="menu-item-label">Manage Produt</span>
         </a>
@@ -390,7 +390,7 @@
 </div>
 
 <!-- Scripts below are for demo only -->
-<script type="text/javascript" src="js/main.min.js?v=1628755089081"></script>
+<script src="js/main1.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script type="text/javascript" src="js/chart.sample.min.js"></script>

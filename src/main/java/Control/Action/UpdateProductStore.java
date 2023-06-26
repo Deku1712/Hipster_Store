@@ -36,9 +36,17 @@ public class UpdateProductStore extends HttpServlet {
         String color = req.getParameter("colorup");
         String name = req.getParameter("nameup");
         String description = req.getParameter("description");
+        String filename=req.getParameter("oldimg");
+        System.out.println(filename);
         Part part = req.getPart("linkimg");
-        String filename = new Feature().getFileName(part);
-        part.write( filename);
+        System.out.println(part);
+        if(part.getSize() != 0){
+            filename = new Feature().getFileName(part);
+            part.write(filename);
+            filename = "./imgs/" + filename;
+        }
+        System.out.println(filename);
+        
         float price = Float.parseFloat(req.getParameter("priceup"));
         List<Integer> list_size = new ArrayList<>();
         for (int i = 36 ; i < 43 ; i++){

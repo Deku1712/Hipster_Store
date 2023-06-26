@@ -28,7 +28,7 @@
                             <img src="${var_img}" alt="">
                         </div>
                         <div class="user_info">
-                            <p>Tran Viet Ngoc tam</p>
+                            <p>${profile_user.fullname}</p>
                             <a href="logout">Log out</a>
                         </div>
                     </div>

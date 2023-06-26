@@ -9,6 +9,7 @@ D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Fee.j
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Reset.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\DB\CartDAO.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\DB\OrderItemDAO.java
+D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\DeleteProductStore.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\UpdateProfile.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\AdminPage.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Cart.java
@@ -50,4 +51,5 @@ D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Accou
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\Login.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\DB\ProductDAO.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Constants.java
+D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Price.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\AddToCart.java
