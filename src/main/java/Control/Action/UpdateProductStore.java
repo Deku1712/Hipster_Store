@@ -27,6 +27,7 @@ import jakarta.servlet.http.Part;
 @MultipartConfig(
     location = "D:\\SU23\\SWP301\\WorkSpace_SWP\\vai2\\hipster_sneaker_shop\\src\\main\\webapp\\imgs"
 )
+
 public class UpdateProductStore extends HttpServlet {
     
     @Override

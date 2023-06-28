@@ -190,7 +190,7 @@
                 Accounts
               </h3>
               <h1>
-                512
+                ${list_user.size()  }
               </h1>
             </div>
             <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
@@ -205,7 +205,7 @@
                 Sales
               </h3>
               <h1>
-                $7,770
+                ${Sales}
               </h1>
             </div>
             <span class="icon widget-icon text-blue-500"><i class="mdi mdi-cart-outline mdi-48px"></i></span>
@@ -213,21 +213,7 @@
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-content">
-          <div class="flex items-center justify-between">
-            <div class="widget-label">
-              <h3>
-                Performance
-              </h3>
-              <h1>
-                256%
-              </h1>
-            </div>
-            <span class="icon widget-icon text-red-500"><i class="mdi mdi-finance mdi-48px"></i></span>
-          </div>
-        </div>
-      </div>
+      
     </div>
 
     <div class="card mb-6">
@@ -304,10 +290,10 @@
                 
                 <td class="actions-cell">
                   <div class="buttons right nowrap">
-                    <button class="button small green --jb-modal show"  data-target="sample-modal-2" type="button">
+                    <button class="button small green --jb-modal show"  data-target="sample-modal-${user.username}" type="button">
                       <span class="icon"><i class="mdi mdi-eye"></i></span>
                     </button>
-                    <button class="button small red --jb-modal" data-target="sample-modal" type="button">
+                    <button class="button small red --jb-modal" data-target="sample-modal-delete${user.username}" type="button">
                       <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                     </button>
                   </div>
@@ -316,7 +302,7 @@
             </c:forEach>
           </tbody>
         </table>
-        <div class="table-pagination">
+        <!-- <div class="table-pagination">
           <div class="flex items-center justify-between">
             <div class="buttons">
               <button type="button" class="button active">1</button>
@@ -325,7 +311,7 @@
             </div>
             <small>Page 1 of 3</small>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -345,47 +331,10 @@
   </div>
 </footer>
 
-<div id="sample-modal" class="modal">
-  <div class="modal-background --jb-modal-close"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Sample modal</p>
-    </header>
-    <section class="modal-card-body">
-      <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-      <p>This is sample modal</p>
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button --jb-modal-close">Cancel</button>
-      <button class="button red --jb-modal-close">Confirm</button>
-    </footer>
-  </div>
-</div>
+<c:import url="RemoveUser.jsp"/>
 
-<div id="sample-modal-2" class="modal">
-  <div class="modal-background --jb-modal-close"></div>
-  <form action="UpdateRole" method="post">
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title"> View Details</p>
-      </header>
-      <section class="modal-card-body d-flex">
-        <img src="" alt="" class="w-50 h-50 img ">
-        <div class="card-body ">
-          <h5 class="card-title"></h5>
-          <p class="card-text name"></p>
-          <p class="card-text phone"></p>
-          <p class="card-text email"></p>
-          <p class="card-text role"></p>
-        </div>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button --jb-modal-close">Cancel</button>
-        <button class="button blue --jb-modal-close">Confirm</button>
-      </footer>
-    </div>
-  </form>
-</div>
+<c:import url="ViewDetailUser.jsp"/>
+
 
 </div>
 

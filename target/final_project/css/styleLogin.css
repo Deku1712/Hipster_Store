@@ -329,12 +329,12 @@ form.sign-in-form {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding: 2.5rem 8%;
+    padding: 2.5rem 2%;
     grid-column: 1 / 2;
   }
 
   .right-panel {
-    grid-row: 3 / 4;
+    grid-row: 0/ 2;
   }
 
   .left-panel {
@@ -348,7 +348,7 @@ form.sign-in-form {
   }
 
   .panel .content {
-    padding-right: 15%;
+    padding-right: 0;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.8s;
   }

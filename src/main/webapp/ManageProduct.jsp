@@ -11,6 +11,7 @@
     <!-- Tailwind is included -->
     <link rel="stylesheet" href="css/main1.css?v=1628755089081">
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
 
 
 
@@ -174,34 +175,19 @@
         </div>
       </section>
 
-      <section class="is-hero-bar">
-        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-          <h1 class="title">
-            Responsive Tables
-          </h1>
-          <button class="button light">Button</button>
-        </div>
-      </section>
+      
 
       <section class="section main-section">
-        <div class="notification blue">
-          <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
-            <div>
-              <span class="icon"><i class="mdi mdi-buffer"></i></span>
-              <b>Responsive table</b>
-            </div>
-            <button type="button" class="button small textual --jb-notification-dismiss">Dismiss</button>
-          </div>
-        </div>
+        
         <div class="card has-table">
           <header class="card-header">
             <p class="card-header-title">
               <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-              Clients
+              Product Store
             </p>
-            <a href="#" class="card-header-icon">
-              <span class="icon"><i class="mdi mdi-reload"></i></span>
-            </a>
+            <button class="button small green --jb-modal" data-target="sample-modal-insert" type="button">
+              <span class="icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
           </header>
           <div class="card-content">
             <table>
@@ -475,8 +461,8 @@
                     <tr class="timeControl">
                       <td>${product.profit_price} $(+50)</td>
                       <td><input type="number" name="priceup" min="0" value="${product.profit_price - 50}" ></td>
-                      <td><input type="date" name="start" class="startinput"  value="${product.price.startOfDate}" min="${product.price.endOfDate}" ></td>
-                      <td><input type="date" name="end" class="endinput"  value="${product.price.endOfDate}" min="" ></td>
+                      <td><input type="date" name="start" class="startinput"  value="${product.price.startOfDate}" min="${product.created_at}" max="${product.price.endOfDate}" ></td>
+                      <td><input type="date" name="end" class="endinput"  value="${product.price.endOfDate}" min="${product.price.startOfDate}" ></td>
                     </tr>
 
                     <tr>
@@ -505,6 +491,175 @@
           </form>
         </div>
       </c:forEach>
+      
+      <div id="sample-modal-insert" class="modal">
+        <div class="modal-background --jb-modal-close"></div>
+        <form action="insertProduct" method="post" enctype="multipart/form-data" >
+
+          <div class="modal-card" style="width: 100%;">
+            <header class="modal-card-head">
+              <p class="modal-card-title">Insert Product</p>
+            </header>
+            <section class="modal-card-body">
+              <table>
+                <tr>
+                  <th>Product ID</th>
+                  <th class="image-cell"></th>
+                  <th>Img</th>
+                  <th>Brand</th>
+                  <th>Name</th>
+                  <th>Color</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="image-cell">
+                    
+                  </td>
+                  <td>
+                    <div class="img_input">
+                      <input type="file" name="linkimg" required>
+                    </div>
+                  </td>
+                  <td>
+                    <input type="text" name="brand+" id="" placeholder="brand"
+                      required>
+                  </td>
+                  <td>
+                    <input type="text" name="name+" id="" placeholder="Name product"
+                      required>
+                  </td>
+                  <td>
+                    <input type="text" name="color+" id="" placeholder="Color" required>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td colspan="10">
+                    <input type="text" name="description+" id=""  style="width: 100%; height: 30px;" required >
+                  </td>
+                </tr>
+              </table>
+
+              <div class="detail_product" style="display: flex; flex-direction: row; justify-content: space-around;">
+                <table class="table table-bordered" style="width: 30%; margin-right: 20px; padding: 5px;">
+                  <tr>
+                    <th>
+                      Size
+                    </th>
+                    <th>
+                      Quantity
+                    </th>
+                  </tr>
+                  
+                    <tr>
+                      <td>
+                        36
+                      </td>
+                      <td>
+                        <input type="number" min="0"  name="36"
+                          required>
+                      </td>
+                    </tr>
+                                      
+                    <tr>
+                      <td>
+                        37
+                      </td>
+                      <td>
+                        <input type="number" min="0"  name="37"
+                          required>
+                      </td>
+                    </tr>
+                                      
+                    <tr>
+                      <td>
+                        38
+                      </td>
+                      <td>
+                        <input type="number" min="0"  name="38"
+                          required>
+                      </td>
+                    </tr>
+                                      
+                    <tr>
+                      <td>
+                        39
+                      </td>
+                      <td>
+                        <input type="number" min="0"  name="39"
+                          required>
+                      </td>
+                    </tr>
+                                      
+                    <tr>
+                      <td>
+                        40
+                      </td>
+                      <td>
+                        <input type="number" min="0"  name="40"
+                          required>
+                      </td>
+                    </tr>
+                                      
+                    <tr>
+                      <td>
+                        41
+                      </td>
+                      <td>
+                        <input type="number" min="0"  name="41"
+                          required>
+                      </td>
+                    </tr>
+                                      
+                    <tr>
+                      <td>
+                        42
+                      </td>
+                      <td>
+                        <input type="number" min="0"  name="42"
+                          required>
+                      </td>
+                    </tr>
+                                      
+                    <tr>
+                      <td>
+                        43
+                      </td>
+                      <td>
+                        <input type="number" min="0"  name="43"
+                          required>
+                      </td>
+                    </tr>
+                  
+                </table>
+
+                <table class=" table table-bordered " style="width: 50%; padding: 5px; height: 100px;">
+                  <tr>
+                    <th>Price</th>
+                    <th>Original_Price</th>
+                    <th>Start the day</th>
+                    <th>End of day</th>
+                  </tr>
+
+                  <tr class="timeControl">
+                    <td></td>
+                    <td><input type="number" name="price+" min="0" required ></td>
+                    <td><input type="date" name="start+" id="startinsert" readonly   ></td>
+                    <td><input type="date" name="end+" id="endinsert" required  ></td>
+                  </tr>
+                </table>
+              </div>
+
+            </section>
+            <footer class="modal-card-foot">
+              <button class="button --jb-modal-close">Cancel</button>
+              <button class="button blue " type="submit">Confirm</button>
+            </footer>
+          </div>
+        </form>
+      </div>
+
+      
 
     </div>
 
@@ -512,15 +667,32 @@
     <script src="js/main1.js"></script>
     <script>
       var startDate = document.querySelectorAll(".startinput");
+      var endDate = document.querySelectorAll(".endinput");
       startDate.forEach(d => {
         d.addEventListener("change", (event) => {
           var changeE = event.target;
           var time = changeE.closest(".timeControl");
+          
           var endDate = time.querySelector(".endinput");
+          var endBegin = endDate.value;
+          if(changeE.value > endBegin){
+            changeE.value = endBegin;
+            
+          }
           endDate.min = changeE.value;
-          endDate.value = changeE.value;
+          
         });
       });
+
+      var today = new Date().toISOString().split('T')[0];
+      var startinsert = document.getElementById('startinsert');
+      startinsert.value = today;
+      var endinsert = document.getElementById('endinsert');
+      endinsert.min = today;
+      
+
+
+      
     </script>
     
     <script>

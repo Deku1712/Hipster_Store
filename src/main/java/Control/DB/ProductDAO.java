@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import Model.Price;
 import Model.Product;
@@ -185,6 +186,55 @@ public class ProductDAO {
             return p;
         }
         return null;
+    }
+
+    public Product getProductForOrder(int product_id , int price_id) throws SQLException, ClassNotFoundException{
+        conn = DBconnect.makeConnection();
+        String query = "Select * from Product_Table where product_id = ?";
+        ps = conn.prepareStatement(query);
+        ps.setInt(1  , product_id);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9), rs.getString(10));
+            Price price = new PriceDAO().getPriceByPriceId(price_id);
+            p.setPrice(price);
+            p.setProfit_price(p.getPrice().getPrice_input() + 50);
+            
+            return p;
+        }
+        return null;
+    }
+
+
+    public void insertProduct(String brand, String nameProduct, String color, String description, String filename,
+            float ori_price, Map<Integer, Integer> map, Date start, Date end) throws SQLException, ClassNotFoundException {
+
+        conn = DBconnect.makeConnection();
+        String query = "Insert into Product_Table(product_name, brand, product_description, img , created_at, color) Values(?, ?, ? ,? ,? , ?)";
+        ps = conn.prepareStatement(query);
+        ps.setString(1, nameProduct);
+        ps.setString(2, brand);
+        ps.setString(3, description);
+        ps.setString(4, filename);
+        ps.setDate(5, start);
+        ps.setString(6, color);
+        ps.execute();
+
+        new PriceDAO().insertPricebyPart(getLastId(), ori_price, start, end);
+        new ProductDetailDAO().insertQuantityOfNewP(getLastId(), map);
+
+
+    }
+
+    public int getLastId() throws SQLException, ClassNotFoundException{
+        conn = DBconnect.makeConnection();
+        String query = "Select Top 1 product_id from Product_Table order by product_id desc ";
+        ps = conn.prepareStatement(query);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            return rs.getInt(1);
+        }
+        return -1;
     }
 
 

@@ -56,7 +56,7 @@ public class Feature {
             case "admin":
             page = "AdminPage";
             break;
-            case "shiper":
+            case "shipper":
             page = "shipPage";
             break;
         }

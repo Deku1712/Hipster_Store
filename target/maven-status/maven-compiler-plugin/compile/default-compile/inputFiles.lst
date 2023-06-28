@@ -15,10 +15,12 @@ D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Adm
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Cart.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Account_SignUp.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\OrderDetail.java
+D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\UpdateRole.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\SignUpServlet.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Valid.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\LoginByGoogle.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Filter.java
+D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Store.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\ProductServlet.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\ProcessReset.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Product_Cart.java
@@ -29,6 +31,7 @@ D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Order
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\DB\CartUserDAO.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\ManageProduct.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\ChangeEmail.java
+D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\InsertProduct.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\LogOut.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\DB\PriceDAO.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Product.java
@@ -42,9 +45,11 @@ D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Lis
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\DB\FeeDao.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Feature.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\processLink.java
+D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\ManageOrder.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\CheckCookie.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Config.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\OrderControl.java
+D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\Action\RemoveUser.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\SearchProduct.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Control\DB\NotificationDAO.java
 D:\SU23\SWP301\WorkSpace_SWP\vai2\hipster_sneaker_shop\src\main\java\Model\Account_Google.java

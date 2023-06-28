@@ -8,6 +8,7 @@ Model\Fee.class
 Control\Feature.class
 Control\Action\ChangeEmail.class
 Control\Config.class
+Control\Action\InsertProduct.class
 Control\Action\UpdateProductStore.class
 Control\Action\CheckCookie.class
 Control\DB\CartDAO.class
@@ -27,8 +28,10 @@ Control\Vnpay.class
 Control\Action\DeleteNotification.class
 Control\UpdateCart.class
 Control\Action\ChangePassword.class
+Model\Store.class
 Control\AdminPage.class
 Model\Account_SignUp.class
+Control\Action\UpdateRole.class
 Control\Action\LoginByGoogle.class
 Control\DB\OrderDAO.class
 Control\SearchProduct.class
@@ -48,6 +51,7 @@ Control\ManageProduct.class
 Model\Product.class
 Control\ListProduct.class
 Control\Filter.class
+Control\ManageOrder.class
 Model\Product_Cart.class
 Control\Reset.class
 Control\DB\PriceDAO.class
@@ -56,3 +60,4 @@ Control\SignUpServlet.class
 Model\User.class
 Control\Send.class
 Control\Send$2.class
+Control\Action\RemoveUser.class

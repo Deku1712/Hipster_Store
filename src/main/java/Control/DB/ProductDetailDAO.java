@@ -74,5 +74,19 @@ public class ProductDetailDAO {
         ps.executeUpdate();
     }
 
+    public void insertQuantityOfNewP(int lastId, Map<Integer, Integer> map) throws SQLException, ClassNotFoundException {
+
+        conn = DBconnect.makeConnection();
+        String query = "Insert into ProductDetail_Table Values(?, ?, ?)";
+        ps = conn.prepareStatement(query);
+
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            ps.setInt(1, lastId);
+            ps.setInt(2, entry.getKey());
+            ps.setInt(3, entry.getValue());
+            ps.executeUpdate();
+        }
+    }
+
 
 }

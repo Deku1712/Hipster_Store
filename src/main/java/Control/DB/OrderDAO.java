@@ -36,7 +36,7 @@ public class OrderDAO {
         ps.setDate(7, sqlDate);
         ps.setString(8, status_payment);
         ps.execute();
-        new OrderItemDAO().insertItemsForOrder(code, list);
+        new OrderItemDAO().insertItemsForOrder(code, list , sqlDate);
         new ProductDetailDAO().updateQuantity(list);
 
     }
@@ -48,6 +48,24 @@ public class OrderDAO {
 
         ps = conn.prepareStatement(query);
         ps.setString(1, username);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            Order o = new Order();
+            OrderDetail orderDetail = new OrderDetail(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getFloat(5), rs.getDate(6), rs.getDate(7), rs.getString(8));
+            o.setOrderDetail(orderDetail);
+            List<Product_Cart> list_items = new OrderItemDAO().getListItemForORderId(o.getOrderDetail().getOrder_id() , o.getOrderDetail().getCreated_at());
+            o.setList_item(list_items);
+            list.add(o);
+        }
+        return list;
+    }
+
+    public List<Order> getAllOrder() throws SQLException, ClassNotFoundException{
+        List<Order> list = new ArrayList<>();
+        conn = DBconnect.makeConnection();
+        String query = "Select * From Order_Table order by created_at desc ";
+
+        ps = conn.prepareStatement(query);
         rs = ps.executeQuery();
         while(rs.next()){
             Order o = new Order();

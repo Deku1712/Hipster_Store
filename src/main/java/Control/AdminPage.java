@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import Control.DB.OrderDAO;
 import Control.DB.UserDAO;
+import Model.Order;
+import Model.Store;
 import Model.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,11 +27,14 @@ public class AdminPage extends HttpServlet{
         if(username != null){
             try {
                 User user = new UserDAO().getProfile(username);
+                List<Order> list_order = new OrderDAO().getAllOrder();
+                float sales = new Store().calculatorSales(list_order);
                 if(user.getRole().equals("admin")){
                     page = "AdminPage.jsp";
                     List<User> list = new UserDAO().getListUser();
                     req.setAttribute("admin", user);
                     req.setAttribute("list_user", list);
+                    req.setAttribute("Sales", sales);
                     
                 }
             } catch (ClassNotFoundException | SQLException e) {

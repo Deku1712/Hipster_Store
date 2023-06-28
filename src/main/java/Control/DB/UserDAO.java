@@ -46,7 +46,7 @@ public class UserDAO {
     }
 
     public void insertAccgmail(Account_Google acc) throws ClassNotFoundException, SQLException {
-        String query = "Insert into User_Table(username, role, email , fullname , created_at, update_at , password ) Values (?, ? ,? , ? ,? ,? , ?)";
+        String query = "Insert into User_Table(username, role, email , fullname , created_at, update_at , password , img) Values (?, ? ,? , ? ,? ,? , ? , ?)";
         conn = DBconnect.makeConnection();
         Date currentDate = new Date();
 
@@ -60,6 +60,7 @@ public class UserDAO {
         ps.setDate(5, sqlDate);
         ps.setDate(6, sqlDate);
         ps.setString(7, "88888888888888");
+        ps.setString(8, "./imgs/ava_user.jpg");
         try {
             ps.executeUpdate();
             
@@ -197,6 +198,25 @@ public class UserDAO {
         }
         System.out.println(list.size());
         return list;
+    }
+
+    public void updateRole(String userUpdate, String role) throws SQLException, ClassNotFoundException {
+        conn= DBconnect.makeConnection();
+        String query = "Update User_Table set role = ? where username = ?";
+        ps  = conn.prepareStatement(query);
+        ps.setString(1, role);
+        ps.setString(2, userUpdate);
+        ps.executeUpdate();
+    }
+
+    public void removeUser(String user) throws SQLException, ClassNotFoundException {
+        conn = DBconnect.makeConnection();
+        String query = "Update User_Table set role = ? where username = ?";
+        ps = conn.prepareStatement(query);
+        ps.setString(1, "customer");
+        ps.setString(2, user);
+        ps.executeUpdate();
+        
     }
 
 }
