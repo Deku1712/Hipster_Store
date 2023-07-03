@@ -545,6 +545,21 @@
         });
       });
     </script>
+
+<script type="module">
+  import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.0/dist/web.js'
+
+  Typebot.initBubble({
+    typebot: "customer-support-copy-lo2lfc2",
+    theme: {
+      button: { backgroundColor: "#D27A7D" },
+      chatWindow: {
+        backgroundColor:
+          "https://s3.fr-par.scw.cloud/typebot/public/typebots/hlmywyje0sbz1lfogu86pyks/blocks/ssmyt084oosa17cggqd8kfg9",
+      },
+    },
+  });
+</script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
   </body>

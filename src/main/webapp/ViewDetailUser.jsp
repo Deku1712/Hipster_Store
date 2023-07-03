@@ -44,7 +44,7 @@
                           <div class="col-6 mb-3">
                             <h6>Update Role</h6>
                             <select name="role" id="" value="${user.role}" class="text-black" >
-                              <option value="" disabled selected>Select your option</option>
+                              <option value="${user.role}"  selected>Select your option</option>
                               <option value="customer">Customer</option>
                               <option value="shipper">Shipper</option>
                               <option value="content">Content Creator</option>

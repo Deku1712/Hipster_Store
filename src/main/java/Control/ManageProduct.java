@@ -29,4 +29,6 @@ public class ManageProduct extends HttpServlet {
         }
         req.getRequestDispatcher(page).forward(req, resp); 
     }
+
+    
 }

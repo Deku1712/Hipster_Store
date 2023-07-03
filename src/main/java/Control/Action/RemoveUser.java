@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = {"/removeUser"})
+@WebServlet(urlPatterns = {"/RemoveUser"})
 public class RemoveUser extends HttpServlet {
     
     @Override

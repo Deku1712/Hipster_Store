@@ -19,6 +19,7 @@ Model\Constants.class
 Control\Send$1.class
 Control\DB\ProductDetailDAO.class
 Control\Action\LogOut.class
+Control\ContentServlet.class
 Model\OrderDetail.class
 Control\DetailProduct.class
 Control\Send$3.class
@@ -43,6 +44,7 @@ Model\Account_Google.class
 Model\Notification.class
 Control\processLink.class
 Control\DB\FeeDao.class
+Model\Content.class
 Control\ProcessReset.class
 Control\DB\CartUserDAO.class
 Control\DB\UserDAO.class
@@ -51,13 +53,14 @@ Control\ManageProduct.class
 Model\Product.class
 Control\ListProduct.class
 Control\Filter.class
-Control\ManageOrder.class
 Model\Product_Cart.class
 Control\Reset.class
 Control\DB\PriceDAO.class
+Control\DetailContent.class
 Control\Action\AddToCart.class
 Control\SignUpServlet.class
 Model\User.class
 Control\Send.class
 Control\Send$2.class
 Control\Action\RemoveUser.class
+Control\DB\ContentDAO.class
