@@ -40,7 +40,8 @@ public class Login extends HttpServlet{
                 }
                 HttpSession session = req.getSession();
                 session.setAttribute("user", username);
-
+                User ad  = new UserDAO().getProfile(username);
+                session.setAttribute("admin", ad);
                 Cart cart = new Cart( );
                 int cart_id = new CartDAO().getCartId(username);
                 cart.setCartId(cart_id);

@@ -33,8 +33,11 @@ public class ProductDAO {
         while(rs.next()){
             Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9),rs.getString(10));
             Price price = new PriceDAO().getPriceForTime(p.getProduct_id(), date);
-            p.setProfit_price(price.getPrice_input()+50);
-            list_product.add(p);
+            if(price!= null){
+
+                p.setProfit_price(price.getPrice_input()+50);
+                list_product.add(p);
+            }
         }
         return list_product;
     }
@@ -51,14 +54,19 @@ public class ProductDAO {
         while(rs.next()){
             Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9), rs.getString(10));
             Price price = new PriceDAO().getPriceForTime(p.getProduct_id(), date);
-            p.setProfit_price(price.getPrice_input()+50);
-            return p;
+            if(price != null) {
+
+                p.setProfit_price(price.getPrice_input()+50);
+                return p;
+            }
         }
         return null;
     }
 
     public List<Product> getListProductRelated(String brand , float profit_price, String color) throws ClassNotFoundException, SQLException{
         List<Product> list = new ArrayList<>();
+        java.util.Date dateutil = new java.util.Date();
+        Date date = new Date(dateutil.getTime());
         Float max_price = profit_price + 25;
         Float min_price = profit_price - 25;
         String query = "Select * From Product_Table where brand = ? and color = ? and profit_price between ? and ?";
@@ -71,7 +79,13 @@ public class ProductDAO {
         rs = ps.executeQuery();
         while(rs.next()){
             Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9), rs.getString(10));
-            list.add(p);
+            Price price = new PriceDAO().getPriceForTime(p.getProduct_id(), date);
+            if(price!= null){
+
+                p.setProfit_price(price.getPrice_input()+50);
+                list.add(p);
+            }
+            
         }
         System.out.println(list.size());
         System.out.println(max_price);
@@ -94,6 +108,8 @@ public class ProductDAO {
 
     public List<Product> getListPSearch(String search) throws SQLException, ClassNotFoundException {
         conn = DBconnect.makeConnection();
+        java.util.Date dateutil = new java.util.Date();
+        Date date = new Date(dateutil.getTime());
         List<Product> list = new ArrayList<>();
         String query = "Select * from Product_Table";
         ps = conn.prepareStatement(query);
@@ -101,7 +117,13 @@ public class ProductDAO {
         while(rs.next()){
             if(rs.getString(2).toUpperCase().contains(search.toUpperCase())){
                 Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9), rs.getString(10));
-                list.add(p);
+                Price price = new PriceDAO().getPriceForTime(p.getProduct_id(), date);
+                if(price!= null){
+
+                    p.setProfit_price(price.getPrice_input()+50);
+                    list.add(p);
+                }
+                
             }
         }
         return list;
@@ -111,12 +133,20 @@ public class ProductDAO {
     public List<Product> getListProduct(String orderby) throws ClassNotFoundException, SQLException {
         conn = DBconnect.makeConnection();
         String query = "Select * from Product_Table order by profit_price " + orderby;
+        java.util.Date dateutil = new java.util.Date();
+        Date date = new Date(dateutil.getTime());
         ps = conn.prepareStatement(query);
         rs = ps.executeQuery();
         List<Product> list_product = new ArrayList<>();
         while(rs.next()){
             Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9),rs.getString(10));
-            list_product.add(p);
+            Price price = new PriceDAO().getPriceForTime(p.getProduct_id(), date);
+                if(price!= null){
+
+                    p.setProfit_price(price.getPrice_input()+50);
+                    list_product.add(p);
+                }
+            
         }
         return list_product;
     }
@@ -125,6 +155,8 @@ public class ProductDAO {
     public List<Product> getListProduct(float min, float max) throws SQLException, ClassNotFoundException {
         conn = DBconnect.makeConnection();
         String query = "Select * from Product_Table where profit_price >= ? and profit_price <= ?";
+        java.util.Date dateutil = new java.util.Date();
+        Date date = new Date(dateutil.getTime());
         ps = conn.prepareStatement(query);
         ps.setFloat(1, min);
         ps.setFloat(2, max);
@@ -132,7 +164,12 @@ public class ProductDAO {
         List<Product> list_product = new ArrayList<>();
         while(rs.next()){
             Product p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getDate(8), rs.getDate(9),rs.getString(10));
-            list_product.add(p);
+             Price price = new PriceDAO().getPriceForTime(p.getProduct_id(), date);
+                if(price!= null){
+
+                    p.setProfit_price(price.getPrice_input()+50);
+                    list_product.add(p);
+                }
         }
         return list_product;
     }
@@ -182,7 +219,6 @@ public class ProductDAO {
             Price price = new PriceDAO().getPriceForTime(p.getProduct_id(), order_time);
             p.setPrice(price);
             p.setProfit_price(p.getPrice().getPrice_input() + 50);
-            
             return p;
         }
         return null;

@@ -57,8 +57,12 @@ public class Feature {
             page = "AdminPage";
             break;
             case "shipper":
-            page = "shipPage";
+            page = "orderManagement";
             break;
+            case "seller":{
+                page = "manageOrder";
+                break;
+            }
         }
         return page;
     }
@@ -69,6 +73,9 @@ public class Feature {
         Date date2 = new Date(date.getTime());
         return date2;
     }
+
+
+    
 
     
 }

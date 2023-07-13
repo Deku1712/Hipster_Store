@@ -6,35 +6,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard - Admin Page Hispter Store</title>
+  <title>Admin Page Hispter Store</title>
 
   <!-- Tailwind is included -->
   <link rel="stylesheet" href="css/main1.css?v=1628755089081">
   <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
-  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#00b4b6"/>
-
-  <meta name="description" content="Admin One - free Tailwind dashboard">
-
-  <meta property="og:url" content="https://justboil.github.io/admin-one-tailwind/">
-  <meta property="og:site_name" content="JustBoil.me">
-  <meta property="og:title" content="Admin One HTML">
-  <meta property="og:description" content="Admin One - free Tailwind dashboard">
-  <meta property="og:image" content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="960">
-
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Admin One HTML">
-  <meta property="twitter:description" content="Admin One - free Tailwind dashboard">
-  <meta property="twitter:image:src" content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png">
-  <meta property="twitter:image:width" content="1920">
-  <meta property="twitter:image:height" content="960">
+ 
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130795909-1"></script>
@@ -52,12 +31,6 @@
 
 <nav id="navbar-main" class="navbar is-fixed-top">
   <div class="navbar-brand">
-    <a class="navbar-item mobile-aside-button">
-      <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
-    </a>
-    <div class="navbar-item">
-      <div class="control"><input placeholder="Search everywhere..." class="input"></div>
-    </div>
   </div>
   <div class="navbar-brand is-right">
     <a class="navbar-item --jb-navbar-menu-toggle" data-target="navbar-menu">
@@ -94,72 +67,7 @@
     </div>
   </div>
 </nav>
-
-<aside class="aside is-placed-left is-expanded">
-  <div class="aside-tools">
-    <div>
-      Hipster <b class="font-black">Store</b>
-    </div>
-  </div>
-  <div class="menu is-menu-main">
-    <p class="menu-label">General</p>
-    <ul class="menu-list">
-      <li class="active">
-        <a href="index.html">
-          <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
-          <span class="menu-item-label">Store</span>
-        </a>
-      </li>
-    </ul>
-    <p class="menu-label">Manage</p>
-    <ul class="menu-list">
-      <li class="--set-active-tables-html">
-        <a href="manageProduct">
-          <span class="icon"><i class="mdi mdi-table"></i></span>
-          <span class="menu-item-label">Manage Produt</span>
-        </a>
-      </li>
-      <li class="--set-active-forms-html">
-        <a href="forms.html">
-          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-          <span class="menu-item-label">Forms</span>
-        </a>
-      </li>
-      <li class="--set-active-profile-html">
-        <a href="profile">
-          <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-          <span class="menu-item-label">Manage Order</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon"><i class="mdi mdi-lock"></i></span>
-          <span class="menu-item-label">Manage Content</span>
-        </a>
-      </li>
-      <li>
-        <a class="dropdown">
-          <span class="icon"><i class="mdi mdi-view-list"></i></span>
-          <span class="menu-item-label">Shipper</span>
-          <span class="icon"><i class="mdi mdi-plus"></i></span>
-        </a>
-        <ul>
-          <li>
-            <a href="#void">
-              <span>Sub-item One</span>
-            </a>
-          </li>
-          <li>
-            <a href="#void">
-              <span>Sub-item Two</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    
-  </div>
-</aside>
+<c:import url="navMenu.html" />
 
 <section class="is-title-bar">
   <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
@@ -259,9 +167,7 @@
           <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
           Users
         </p>
-        <a href="#" class="card-header-icon">
-          <span class="icon"><i class="mdi mdi-reload"></i></span>
-        </a>
+        
       </header>
       <div class="card-content">
         <table>
@@ -314,6 +220,64 @@
         </div> -->
       </div>
     </div>
+
+
+
+    <div class="card has-table m-t-10">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+          Latest orders
+        </p>
+        <button class="card-header-icon" onclick="reloadPage()">
+          <span class="icon"><i class="mdi mdi-reload"></i></span>
+      </button>
+      </header>
+      <div class="card-content">
+        <table>
+          <thead>
+          <tr>
+            <th>Order Id</th>
+            <th>Username</th>
+            <th>Status Order</th>
+            <th>Delivery Address</th>
+            <th>Total_Price</th>
+            <th>Created At</th>
+            <th>Status Payment</th>
+            
+          </tr>
+          </thead>
+          <tbody>
+            <c:forEach items="${listOrders}" var="order" begin="0" end="10">
+              <tr>
+                <td>
+                  ${order.orderDetail.order_id}
+                </td>
+                <td>${order.orderDetail.username}</td>
+                <td>${order.orderDetail.status_order}</td>
+                <td>${order.orderDetail.delivery_address}</td>
+                <td>${order.orderDetail.total_price}</td>
+                <td>${order.orderDetail.created_at}</td>
+                <td>${order.orderDetail.status_Payment}</td>
+              </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+        <!-- <div class="table-pagination">
+          <div class="flex items-center justify-between">
+            <div class="buttons">
+              <button type="button" class="button active">1</button>
+              <button type="button" class="button">2</button>
+              <button type="button" class="button">3</button>
+            </div>
+            <small>Page 1 of 3</small>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+
+
   </section>
 
 <footer class="footer">
@@ -346,6 +310,11 @@
 <script src="script/adminPage.js"></script>
 
 <script>
+
+function reloadPage() {
+  location.reload(); // Phương thức reload sẽ tải lại trang web hiện tại
+}
+
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};

@@ -49,6 +49,7 @@
                               <option value="shipper">Shipper</option>
                               <option value="content">Content Creator</option>
                               <option value="admin">Admin</option>
+                              <option value="seller">Seller</option>
                             </select>
                           </div>
                         </div>

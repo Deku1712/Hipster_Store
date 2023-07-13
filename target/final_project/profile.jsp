@@ -40,10 +40,12 @@
                         <button class="btn changePass" data-target="ChangePassword">
                             Change Password
                         </button>
-                        <button class="btn hover-zoom" data-target="order">
+                        <button class="btn hover-zoom " type="button" data-target="order"  >
                             <i class="fa-solid fa-list-radio"></i>
                             <span>Order Bill</span>
                         </button>
+                        
+                        
                         <button class="btn hover-zoom" data-target="notification">
                             <i class="fa-regular fa-bell"></i>
                             <span>Notification</span>
@@ -135,10 +137,18 @@
                     <!-- end change password -->
                     <!-- order -->
                     <div id="order" class="contentbtn">
+                        <div id="myBtnContainer">
+                            <button type="button" class="btn-orderType active" onclick="filterSelection('all')"> Show all</button>
+                            <button type="button" class="btn-orderType" onclick="filterSelection('Processing')"> Processing</button>
+                            <button type="button" class="btn-orderType" onclick="filterSelection(' Preparing for delivery')"> Prepare For shipping</button>
+                            <button type="button" class="btn-orderType" onclick="filterSelection('shipping')"> Shipping</button>
+                            <button type="button" class="btn-orderType" onclick="filterSelection('success')"> Success</button>
+                          </div>
+
                         <div class="scrollable-content">
                             <div class="order-items">
                                 <c:forEach items="${list_order}" var="order">
-                                    <div class="item">
+                                    <div class="item filterDiv ${order.orderDetail.status_order}">
                                         <div class="item-header">
                                             <div class="code">
                                                 Code : ${order.orderDetail.order_id}
@@ -186,13 +196,13 @@
                                     </div>
                                 </c:forEach>
 
-
                             </div>
                         </div>
                     </div>
                     <!-- end order -->
 
                     <div id="notification" class="contentbtn">
+                        
                         <div class="scrollable-content">
                             <c:forEach items="${list_noti}" var="noti">
                                 <div class="card m-b-9">
@@ -216,6 +226,7 @@
                 </div>
             </div>
             <script src="script/profile.js"></script>
+            
             
         </body>
 

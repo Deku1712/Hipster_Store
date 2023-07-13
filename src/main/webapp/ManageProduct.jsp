@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tables - Admin One Tailwind CSS Admin Dashboard</title>
+    <title>Admin-Manage Product</title>
 
     <!-- Tailwind is included -->
     <link rel="stylesheet" href="css/main1.css?v=1628755089081">
@@ -14,30 +14,6 @@
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
 
 
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#00b4b6" />
-
-    <meta name="description" content="Admin One - free Tailwind dashboard">
-
-    <meta property="og:url" content="https://justboil.github.io/admin-one-tailwind/">
-    <meta property="og:site_name" content="JustBoil.me">
-    <meta property="og:title" content="Admin One HTML">
-    <meta property="og:description" content="Admin One - free Tailwind dashboard">
-    <meta property="og:image" content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1920">
-    <meta property="og:image:height" content="960">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Admin One HTML">
-    <meta property="twitter:description" content="Admin One - free Tailwind dashboard">
-    <meta property="twitter:image:src" content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png">
-    <meta property="twitter:image:width" content="1920">
-    <meta property="twitter:image:height" content="960">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130795909-1"></script>
@@ -56,12 +32,6 @@
 
       <nav id="navbar-main" class="navbar is-fixed-top">
         <div class="navbar-brand">
-          <a class="navbar-item mobile-aside-button">
-            <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
-          </a>
-          <div class="navbar-item">
-            <div class="control"><input placeholder="Search everywhere..." class="input"></div>
-          </div>
         </div>
         <div class="navbar-brand is-right">
           <a class="navbar-item --jb-navbar-menu-toggle" data-target="navbar-menu">
@@ -99,71 +69,7 @@
         </div>
       </nav>
       
-      <aside class="aside is-placed-left is-expanded">
-        <div class="aside-tools">
-          <div>
-            Hipster <b class="font-black">Store</b>
-          </div>
-        </div>
-        <div class="menu is-menu-main">
-          <p class="menu-label">General</p>
-          <ul class="menu-list">
-            <li class="active">
-              <a href="index.html">
-                <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
-                <span class="menu-item-label">Store</span>
-              </a>
-            </li>
-          </ul>
-          <p class="menu-label">Manage</p>
-          <ul class="menu-list">
-            <li class="--set-active-tables-html">
-              <a href="tables.html">
-                <span class="icon"><i class="mdi mdi-table"></i></span>
-                <span class="menu-item-label">Manage Produt</span>
-              </a>
-            </li>
-            <li class="--set-active-forms-html">
-              <a href="forms.html">
-                <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-                <span class="menu-item-label">Forms</span>
-              </a>
-            </li>
-            <li class="--set-active-profile-html">
-              <a href="profile">
-                <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-                <span class="menu-item-label">Manage Order</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="icon"><i class="mdi mdi-lock"></i></span>
-                <span class="menu-item-label">Manage Content</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown">
-                <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                <span class="menu-item-label">Shipper</span>
-                <span class="icon"><i class="mdi mdi-plus"></i></span>
-              </a>
-              <ul>
-                <li>
-                  <a href="#void">
-                    <span>Sub-item One</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#void">
-                    <span>Sub-item Two</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          
-        </div>
-      </aside>
+      <c:import url="navMenu.html" />
       
       <section class="is-title-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">

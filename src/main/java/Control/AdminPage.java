@@ -25,24 +25,24 @@ public class AdminPage extends HttpServlet{
         String username = (String) session.getAttribute("user");
         System.out.println(username);
         if(username != null){
-            try {
-                User user = new UserDAO().getProfile(username);
-                List<Order> list_order = new OrderDAO().getAllOrder();
-                float sales = new Store().calculatorSales(list_order);
-                if(user.getRole().equals("admin")){
+            User ad = (User) session.getAttribute("admin");
+            if(ad.getRole().equals("admin")){
+                try {
+                    List<Order> list_order = new OrderDAO().getAllOrder();
+                    float sales = new Store().calculatorSales(list_order);
                     page = "AdminPage.jsp";
                     List<User> list = new UserDAO().getListUser();
-                    req.setAttribute("admin", user);
                     req.setAttribute("list_user", list);
+                    req.setAttribute("listOrders", list_order);
                     req.setAttribute("Sales", sales);
-                    
+                } catch (ClassNotFoundException | SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
-            } catch (ClassNotFoundException | SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
             }
         }
         req.getRequestDispatcher(page).forward(req, resp);
     }
+    
 
 }

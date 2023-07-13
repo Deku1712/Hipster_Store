@@ -42,6 +42,7 @@ public class CheckCookie  extends HttpServlet{
                     session.setAttribute("list_fee", listFee);
                     session.setAttribute("cart_user", cart);
                     User user = new UserDAO().getProfile(cookie.getValue());
+                    session.setAttribute("admin", user);
                     page = new Feature().checkRole(user.getRole());
                 } catch (ClassNotFoundException | SQLException e) {
                     // TODO Auto-generated catch block

@@ -219,5 +219,17 @@ public class UserDAO {
         
     }
 
+    public String getPhone(String order_id) throws SQLException, ClassNotFoundException{
+        String query = "select u.phone from Order_Table o ,User_Table u , Ship_Table s where o.username = u.username and o.order_id = s.order_id and o.order_id = ?";
+        conn = DBconnect.makeConnection();
+        ps = conn.prepareStatement(query);
+        ps.setString(1, order_id);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            return rs.getString(1);
+        }
+        return null;
+    }
+
 }
 

@@ -38,7 +38,7 @@ public class OrderControl extends HttpServlet {
             String list_order_String = req.getParameter("list_order");
             String[] list_orderString = list_order_String.split("--");
             List<String> list_order = new ArrayList<>(Arrays.asList(list_orderString));
-            Iterator<String> iterator = list_order.iterator();
+            
             String city = req.getParameter("city");
             String pay = req.getParameter("pay");
             String address = req.getParameter("address");
@@ -51,27 +51,31 @@ public class OrderControl extends HttpServlet {
             
             System.out.println(list_order);
 
-
-            for (Product_Cart product_Cart : cart.getList_product()) {
+            List<Product_Cart> afterRemove = new ArrayList<>(cart.getList_product());
+            for (Product_Cart product_Cart : afterRemove) {
                 String codeCheck = product_Cart.getProduct().getProduct_id() + "/" + product_Cart.getSize();
-                
+                Iterator<String> iterator = list_order.iterator();
                 while(iterator.hasNext()){
                     String s = iterator.next();
+                    System.out.println("code check: " + codeCheck + "/ s: " + s );
                     if(s.equals(codeCheck)){
                         list_order_cart.add(product_Cart);
                         iterator.remove();
                     }
                 }
+                
             }
 
             
-            List<Product_Cart> afterRemove = new ArrayList<>(cart.getList_product());
+            
             System.out.println("after remvoe:" + afterRemove.size());
             for (Product_Cart product_Cart : list_order_cart) {
                 if (afterRemove.contains(product_Cart)) {
                     afterRemove.remove(product_Cart);
                 }
             }
+            System.out.println("after remvoe:" + afterRemove.size());
+
 
             try {
                 Product_Cart p = new ProductDAO().checkQuantityProduct(list_order_cart);
